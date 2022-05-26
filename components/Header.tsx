@@ -3,28 +3,16 @@ import styled from "styled-components";
 import { Planet } from "../models/Planet";
 
 interface Props {
-	planets: Planet[];
+	planetName: string;
+	planetPaths: string[];
 }
 
-const Header = ({ planets }: Props) => {
-	console.log(planets);
+const Header = ({ planetName, planetPaths }: Props) => {
 	return <Container>Header</Container>;
 };
 
 const Container = styled.header`
 	font-family: var(--font-secondary);
 `;
-
-export const getStaticProps = async () => {
-	const response = await fetch("http://localhost:3000/api/planets");
-	console.log(response);
-	const planets = await response.json();
-
-	return {
-		props: {
-			planets,
-		},
-	};
-};
 
 export default Header;
