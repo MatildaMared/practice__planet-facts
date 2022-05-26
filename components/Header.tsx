@@ -6,7 +6,7 @@ const Header = () => {
 };
 
 const Container = styled.header`
-	font-family: "Antonio", sans-serif;
+	font-family: var(--font-secondary);
 `;
 
 export default Header;
