@@ -1,4 +1,5 @@
-import type { AppProps } from "next/app";
+import type { AppContext, AppProps } from "next/app";
+import App from "next/app";
 import Layout from "../components/Layout";
 import { GlobalStyles } from "../styles/globalStyles";
 import { Reset } from "../styles/reset";
@@ -10,9 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<GlobalStyles />
 			<Variables />
 			<Reset />
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
+			<Component {...pageProps} />
 		</>
 	);
 }

@@ -1,15 +1,18 @@
 import React from "react";
-import styled from "styled-components";
+import { Planet } from "../models/Planet";
 import Header from "./Header";
+import Meta from "./Meta";
 
 interface Props {
 	children: React.ReactNode;
+	planets: Planet[];
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, planets }: Props) => {
 	return (
 		<>
-			<Header />
+			<Meta />
+			<Header planets={planets} />
 			{children}
 		</>
 	);
