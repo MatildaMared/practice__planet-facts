@@ -6,5 +6,6 @@ export const GlobalStyles = createGlobalStyle`
         background-image: url("./assets/background-stars.svg");
         background-attachment: fixed;
         background-size: cover;
+        color: #fff;
     }
 `;

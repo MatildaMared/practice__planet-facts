@@ -1,6 +1,5 @@
 import type {
 	GetStaticPropsContext,
-	GetStaticPropsResult,
 	NextPage,
 } from "next";
 import { GetStaticProps } from "next";
@@ -21,9 +20,6 @@ const PlanetPage: NextPage<Props> = ({
 	planetPaths,
 	planetData,
 }: Props) => {
-	console.log(planetName);
-	console.log(planetPaths);
-	console.log("Planet data: ", planetData);
 
 	return (
 		<>
