@@ -4,15 +4,6 @@ const nextConfig = {
 	compiler: {
 		styledComponents: true,
 	},
-	redirects() {
-		return [
-			{
-				source: "/",
-				destination: "/earth",
-				permanent: true,
-			},
-		];
-	},
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.svg$/,
