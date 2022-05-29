@@ -8,5 +8,14 @@ export const Variables = createGlobalStyle`
         --color-background: hsl(240, 67%, 8%);
 
         --color-gray-light: #97979760;
+
+        --color-mercury: #DEF4FC;
+        --color-venus: #F7CC7F;
+        --color-earth: #545BFE;
+        --color-mars: #FF6A45;
+        --color-jupiter: #ECAD7A;
+        --color-saturn: #FCCB6B;
+        --color-uranus: #65F0D5;
+        --color-neptune: #497EFA;
     }
 `;

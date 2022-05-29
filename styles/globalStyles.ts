@@ -7,5 +7,6 @@ export const GlobalStyles = createGlobalStyle`
         background-attachment: fixed;
         background-size: cover;
         color: #fff;
+        font-family: var(--font-primary);
     }
 `;
