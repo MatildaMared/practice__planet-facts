@@ -1,7 +1,7 @@
-import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import Router from "next/router";
+import { Breakpoint } from "../styles/constans";
 
 interface Props {
 	planetPaths: string[];
@@ -46,12 +46,24 @@ const Container = styled.nav`
 	background-image: url("./assets/background-stars.svg");
 	background-attachment: fixed;
 	background-size: cover;
+
+	@media (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		position: static;
+		width: 100%;
+		top: 0;
+		padding: 0;
+	}
 `;
 
 const List = styled.ul`
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
+
+	@media (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		display: flex;
+		justify-content: space-between;
+	}
 `;
 
 interface ItemProps {
@@ -66,6 +78,11 @@ const Item = styled.li<ItemProps>`
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	padding: 20px 0 20px 45px;
 	cursor: pointer;
+	transition: all 0.2s;
+
+	&:hover {
+		color: rgba(255, 255, 255, 0.5);
+	}
 
 	&::before {
 		content: "";
@@ -95,6 +112,18 @@ const Item = styled.li<ItemProps>`
 	& a {
 		color: #fff;
 		text-decoration: none;
+	}
+
+	@media (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		padding: 0;
+		line-height: 1;
+		border: none;
+		font-size: 12px;
+
+		&::before,
+		&::after {
+			display: none;
+		}
 	}
 `;
 

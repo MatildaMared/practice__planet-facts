@@ -50,6 +50,13 @@ const Container = styled.header`
 	justify-content: space-between;
 	position: relative;
 	height: 61px;
+
+	@media (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		flex-direction: column;
+		height: auto;
+		gap: 38px;
+		padding: 32px 50px 32px 50px;
+	}
 `;
 
 const Logo = styled.h1`
