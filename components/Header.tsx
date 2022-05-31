@@ -7,11 +7,11 @@ import { Breakpoint } from "../styles/constans";
 import Nav from "./Nav";
 
 interface Props {
-	planetName: string;
+	currentPlanet: string;
 	planetPaths: string[];
 }
 
-const Header = ({ planetName, planetPaths }: Props) => {
+const Header = ({ currentPlanet, planetPaths }: Props) => {
 	const [menuIsOpen, setMenuIsOpen] = useState(false);
 	const windowWidth = useWidth();
 
@@ -24,7 +24,10 @@ const Header = ({ planetName, planetPaths }: Props) => {
 			<Container>
 				<Logo>The planets</Logo>
 				{windowWidth > Breakpoint.TabletPortraitPx ? (
-					<Nav planetPaths={planetPaths} />
+					<Nav
+						planetPaths={planetPaths}
+						currentPlanet={currentPlanet}
+					/>
 				) : (
 					<MenuButton
 						onClick={toggleMenu}
@@ -57,13 +60,26 @@ const Container = styled.header`
 		gap: 38px;
 		padding: 32px 50px 32px 50px;
 	}
+
+	@media (min-width: ${Breakpoint.LaptopPx}px) {
+		flex-direction: row;
+		padding-block: 0;
+	}
 `;
 
 const Logo = styled.h1`
+	white-space: nowrap;
+	width: 100%;
+	flex: 1;
 	font-family: var(--font-secondary);
 	font-size: 1.75rem;
 	text-transform: uppercase;
 	line-height: 1;
+	text-align: center;
+
+	@media (min-width: ${Breakpoint.LaptopPx}px) {
+		text-align: left;
+	}
 `;
 
 const MenuButton = styled.button`

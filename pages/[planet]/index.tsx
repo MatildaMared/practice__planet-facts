@@ -1,7 +1,4 @@
-import type {
-	GetStaticPropsContext,
-	NextPage,
-} from "next";
+import type { GetStaticPropsContext, NextPage } from "next";
 import { GetStaticProps } from "next";
 import planets from "./../../data.json";
 import styled from "styled-components";
@@ -10,21 +7,20 @@ import Header from "./../../components/Header";
 import Meta from "../../components/Meta";
 
 interface Props {
-	planetName: string;
+	currentPlanet: string;
 	planetPaths: string[];
 	planetData: Planet;
 }
 
 const PlanetPage: NextPage<Props> = ({
-	planetName,
+	currentPlanet,
 	planetPaths,
 	planetData,
 }: Props) => {
-
 	return (
 		<>
 			<Meta title={`Planets Info 🌎 ${planetData.name}`} />
-			<Header planetName={planetName} planetPaths={planetPaths} />
+			<Header currentPlanet={currentPlanet} planetPaths={planetPaths} />
 			<div>PlanetPage</div>;
 		</>
 	);
@@ -33,17 +29,17 @@ const PlanetPage: NextPage<Props> = ({
 export const getStaticProps: GetStaticProps = async (
 	context: GetStaticPropsContext
 ) => {
-	const planetName = context.params!.planet || "";
+	const currentPlanet = context.params!.planet || "";
 	const planetPaths: string[] = planets.map((planet) =>
 		planet.name.toLowerCase()
 	);
 	const planetData = planets.filter(
-		(planet) => planet.name.toLowerCase() === planetName
+		(planet) => planet.name.toLowerCase() === currentPlanet
 	)[0];
 
 	return {
 		props: {
-			planetName,
+			currentPlanet,
 			planetPaths,
 			planetData,
 		},

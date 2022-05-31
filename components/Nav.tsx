@@ -4,17 +4,20 @@ import Router from "next/router";
 import { Breakpoint } from "../styles/constans";
 
 interface Props {
+	currentPlanet?: string;
 	planetPaths: string[];
 	toggleMenu?: () => void;
 }
 
-const Nav = ({ planetPaths, toggleMenu }: Props) => {
+const Nav = ({ planetPaths, toggleMenu, currentPlanet }: Props) => {
 	const handleClick = (path: string) => {
 		if (toggleMenu) {
 			toggleMenu();
 		}
 		Router.push("/" + path);
 	};
+
+	console.log(planetPaths, currentPlanet);
 
 	return (
 		<Container>
@@ -25,6 +28,9 @@ const Nav = ({ planetPaths, toggleMenu }: Props) => {
 							key={index}
 							onClick={() => handleClick(planetPath)}
 							planet={planetPath}
+							className={
+								currentPlanet === planetPath ? "active" : ""
+							}
 						>
 							{planetPath}
 						</Item>
@@ -53,6 +59,10 @@ const Container = styled.nav`
 		top: 0;
 		padding: 0;
 	}
+
+	@media (min-width: ${Breakpoint.LaptopPx}px) {
+		width: auto;
+	}
 `;
 
 const List = styled.ul`
@@ -63,6 +73,10 @@ const List = styled.ul`
 	@media (min-width: ${Breakpoint.TabletPortraitPx}px) {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	@media (min-width: ${Breakpoint.LaptopPx}px) {
+		gap: 33px;
 	}
 `;
 
@@ -123,6 +137,18 @@ const Item = styled.li<ItemProps>`
 		&::before,
 		&::after {
 			display: none;
+		}
+	}
+
+	@media (min-width: ${Breakpoint.LaptopPx}px) {
+		padding-block: 30px 32px;
+		border-top: 4px solid transparent;
+
+		&.active,
+		&:hover {
+			border-top: ${(props) => {
+				return `4px solid var(--color-${props.planet})`;
+			}};
 		}
 	}
 `;
