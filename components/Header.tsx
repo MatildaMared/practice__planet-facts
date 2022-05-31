@@ -47,7 +47,7 @@ const Header = ({ currentPlanet, planetPaths }: Props) => {
 const Container = styled.header`
 	padding-inline: 24px;
 	padding-block: 16px;
-	border-bottom: 1px solid var(--color-gray-light);
+	border-bottom: 1px solid var(--color-gray);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -75,7 +75,11 @@ const Logo = styled.h1`
 	font-size: 1.75rem;
 	text-transform: uppercase;
 	line-height: 1;
-	text-align: center;
+	text-align: left;
+
+	@media (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		text-align: center;
+	}
 
 	@media (min-width: ${Breakpoint.LaptopPx}px) {
 		text-align: left;
