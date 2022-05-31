@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Planet } from "./../../models/Planet";
 import Header from "./../../components/Header";
 import Meta from "../../components/Meta";
+import PlanetInfo from "../../components/PlanetInfo";
 
 interface Props {
 	currentPlanet: string;
@@ -21,7 +22,7 @@ const PlanetPage: NextPage<Props> = ({
 		<>
 			<Meta title={`Planets Info 🌎 ${planetData.name}`} />
 			<Header currentPlanet={currentPlanet} planetPaths={planetPaths} />
-			<div>PlanetPage</div>;
+			<PlanetInfo planetData={planetData} />
 		</>
 	);
 };
