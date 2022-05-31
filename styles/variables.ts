@@ -7,7 +7,8 @@ export const Variables = createGlobalStyle`
 
         --color-background: hsl(240, 67%, 8%);
 
-        --color-gray-light: #97979760;
+        --color-gray: #38384F;
+        --color-gray-light: #838391;
 
         --color-mercury: #DEF4FC;
         --color-venus: #F7CC7F;
