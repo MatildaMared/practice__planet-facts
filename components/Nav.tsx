@@ -17,8 +17,6 @@ const Nav = ({ planetPaths, toggleMenu, currentPlanet }: Props) => {
 		Router.push("/" + path);
 	};
 
-	console.log(planetPaths, currentPlanet);
-
 	return (
 		<Container>
 			<List>
