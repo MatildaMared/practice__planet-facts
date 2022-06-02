@@ -23,7 +23,7 @@ const Header = ({ currentPlanet, planetPaths }: Props) => {
 		<>
 			<Container>
 				<Logo>The planets</Logo>
-				{windowWidth > Breakpoint.TabletPortraitPx ? (
+				{windowWidth >= Breakpoint.TabletPortraitPx ? (
 					<Nav
 						planetPaths={planetPaths}
 						currentPlanet={currentPlanet}

@@ -10,13 +10,13 @@ export const Variables = createGlobalStyle`
         --color-gray: #38384F;
         --color-gray-light: #838391;
 
-        --color-mercury: #DEF4FC;
-        --color-venus: #F7CC7F;
-        --color-earth: #545BFE;
-        --color-mars: #FF6A45;
-        --color-jupiter: #ECAD7A;
-        --color-saturn: #FCCB6B;
-        --color-uranus: #65F0D5;
-        --color-neptune: #497EFA;
+        --color-mercury: #419EBB;
+        --color-venus: #EDA249;
+        --color-earth: #6D2ED5;
+        --color-mars: #D14C32;
+        --color-jupiter: #D83A34;
+        --color-saturn: #CD5120;
+        --color-uranus: #1ec2a4;
+        --color-neptune: #2D68F0;
     }
 `;

@@ -4,50 +4,28 @@ import styled from "styled-components";
 import IconSource from "./../public/assets/icon-source.svg";
 import { useWidth } from "../hooks/useWidth";
 import { Breakpoint } from "../styles/constans";
+import { Data } from "../models/Data";
+import PlanetNav from "./PlanetNav";
 
 interface Props {
 	planetData: Planet;
 }
 
-enum Data {
-	Overview = "overview",
-	Surface = "surface",
-	Structure = "structure",
-}
-
 const PlanetInfo = ({ planetData }: Props) => {
 	const [currentData, setCurrentData] = useState<Data>(Data.Overview);
 	const windowWidth = useWidth();
+
 	console.log(planetData);
+
 	return (
 		<Container>
-			<Nav>
-				<NavItem
-					planetName={planetData.name.toLowerCase()}
-					className={currentData === Data.Overview ? "active" : ""}
-					onClick={() => setCurrentData(Data.Overview)}
-				>
-					Overview
-				</NavItem>
-				<NavItem
-					planetName={planetData.name.toLowerCase()}
-					className={currentData === Data.Structure ? "active" : ""}
-					onClick={() => setCurrentData(Data.Structure)}
-				>
-					{windowWidth >= Breakpoint.TabletLandscapePx
-						? "Internal Structure"
-						: "Structure"}
-				</NavItem>
-				<NavItem
-					planetName={planetData.name.toLowerCase()}
-					className={currentData === Data.Surface ? "active" : ""}
-					onClick={() => setCurrentData(Data.Surface)}
-				>
-					{windowWidth >= Breakpoint.TabletLandscapePx
-						? "Surface Geology"
-						: "Geology"}
-				</NavItem>
-			</Nav>
+			{windowWidth < Breakpoint.TabletPortraitPx && (
+				<PlanetNav
+					planetData={planetData}
+					currentData={currentData}
+					setCurrentData={setCurrentData}
+				/>
+			)}
 			<ImageWrapper
 				className={currentData === Data.Surface ? "extra-space" : ""}
 			>
@@ -62,19 +40,33 @@ const PlanetInfo = ({ planetData }: Props) => {
 					<GeologyImage src={planetData.images.geology} />
 				)}
 			</ImageWrapper>
-			<Heading>{planetData.name}</Heading>
-			<Text>
-				{currentData === "overview" && planetData.overview.content}
-				{currentData === "surface" && planetData.geology.content}
-				{currentData === "structure" && planetData.structure.content}
-			</Text>
-			<Source>
-				Source:{" "}
-				<Link href={planetData.overview.source} target="blank">
-					Wikipedia
-					<IconSource />
-				</Link>
-			</Source>
+			<DataContainer>
+				<DataContent>
+					<Heading>{planetData.name}</Heading>
+					<Text>
+						{currentData === "overview" &&
+							planetData.overview.content}
+						{currentData === "surface" &&
+							planetData.geology.content}
+						{currentData === "structure" &&
+							planetData.structure.content}
+					</Text>
+					<Source>
+						Source:{" "}
+						<Link href={planetData.overview.source} target="blank">
+							Wikipedia
+							<IconSource />
+						</Link>
+					</Source>
+				</DataContent>
+				{windowWidth >= Breakpoint.TabletPortraitPx && (
+					<PlanetNav
+						planetData={planetData}
+						currentData={currentData}
+						setCurrentData={setCurrentData}
+					/>
+				)}
+			</DataContainer>
 			<Information>
 				<InformationItem>
 					<h3>Rotation</h3>
@@ -104,36 +96,6 @@ const Container = styled.main`
 	justify-content: center;
 `;
 
-const Nav = styled.nav`
-	width: 100%;
-	border-bottom: 1px solid var(--color-gray);
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-`;
-
-interface NavItemProps {
-	planetName: string;
-}
-
-const NavItem = styled.button<NavItemProps>`
-	padding: 20px 0;
-	color: #fff;
-	font-size: 0.875rem;
-	text-transform: uppercase;
-	border: none;
-	background: none;
-	border-bottom: 4px solid transparent;
-	transition: all 0.2s;
-	cursor: pointer;
-
-	&.active,
-	&:hover {
-		border-bottom: 4px solid
-			${(props) => `var(--color-${props.planetName})`};
-	}
-`;
-
 const Heading = styled.h1`
 	font-size: 2.5rem;
 	font-family: var(--font-secondary);
@@ -153,6 +115,10 @@ const ImageWrapper = styled.figure`
 	&.extra-space {
 		margin-bottom: 4rem;
 	}
+
+	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		margin-bottom: 3rem;
+	}
 `;
 
 const PlanetImage = styled.img`
@@ -163,10 +129,32 @@ const PlanetImage = styled.img`
 const GeologyImage = styled.img`
 	position: absolute;
 	width: 40%;
+	max-width: 200px;
 	height: auto;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, 30%);
+`;
+
+const DataContainer = styled.div`
+	display: flex;
+	padding-inline: 24px;
+	align-items: center;
+	gap: 2rem;
+
+	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		margin-bottom: 26px;
+	}
+`;
+
+const DataContent = styled.section`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		align-items: flex-start;
+	}
 `;
 
 const Text = styled.p`
@@ -174,6 +162,11 @@ const Text = styled.p`
 	margin-inline: 24px;
 	text-align: center;
 	margin-bottom: 1rem;
+
+	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		text-align: left;
+		margin-inline: 0;
+	}
 `;
 
 const Source = styled.p`
@@ -204,6 +197,10 @@ const Information = styled.ul`
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+
+	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		flex-direction: row;
+	}
 `;
 
 const InformationItem = styled.li`
@@ -212,6 +209,14 @@ const InformationItem = styled.li`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		width: 100%;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 8px;
+	}
 
 	& h3 {
 		font-size: 0.75rem;
@@ -224,6 +229,10 @@ const InformationItem = styled.li`
 	& p {
 		font-size: 1.25rem;
 		font-family: var(--font-secondary);
+
+		@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
+			font-size: 1.5rem;
+		}
 	}
 `;
 
