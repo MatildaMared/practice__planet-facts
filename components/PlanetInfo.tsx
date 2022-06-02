@@ -75,6 +75,24 @@ const PlanetInfo = ({ planetData }: Props) => {
 					<IconSource />
 				</Link>
 			</Source>
+			<Information>
+				<InformationItem>
+					<h3>Rotation</h3>
+					<p>{planetData.rotation}</p>
+				</InformationItem>
+				<InformationItem>
+					<h3>Revolution Time</h3>
+					<p>{planetData.revolution}</p>
+				</InformationItem>
+				<InformationItem>
+					<h3>Radius</h3>
+					<p>{planetData.radius}</p>
+				</InformationItem>
+				<InformationItem>
+					<h3>Average temp.</h3>
+					<p>{planetData.temperature}</p>
+				</InformationItem>
+			</Information>
 		</Container>
 	);
 };
@@ -128,11 +146,12 @@ const ImageWrapper = styled.figure`
 	display: flex;
 	justify-content: center;
 	position: relative;
+	z-index: -1;
 	display: flex;
 	flex-direction: column;
 
 	&.extra-space {
-		margin-bottom: 3.5rem;
+		margin-bottom: 4rem;
 	}
 `;
 
@@ -154,6 +173,7 @@ const Text = styled.p`
 	font-size: 0.875rem;
 	margin-inline: 24px;
 	text-align: center;
+	margin-bottom: 1rem;
 `;
 
 const Source = styled.p`
@@ -173,6 +193,37 @@ const Link = styled.a`
 
 	&:hover {
 		color: var(--color-gray);
+	}
+`;
+
+const Information = styled.ul`
+	margin: 0;
+	padding: 24px;
+	list-style: none;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+`;
+
+const InformationItem = styled.li`
+	padding: 16px 24px;
+	border: 1px solid var(--color-gray);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	& h3 {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: var(--color-gray-light);
+	}
+
+	& p {
+		font-size: 1.25rem;
+		font-family: var(--font-secondary);
 	}
 `;
 

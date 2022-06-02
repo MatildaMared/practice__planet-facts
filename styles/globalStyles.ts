@@ -8,5 +8,18 @@ export const GlobalStyles = createGlobalStyle`
         background-size: cover;
         color: #fff;
         font-family: var(--font-primary);
+
+        ::-webkit-scrollbar {
+        width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+        background: var(--color-background);
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, .15);
+        border-radius: 6px;
+        }
     }
 `;
