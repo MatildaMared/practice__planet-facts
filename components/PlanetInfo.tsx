@@ -15,8 +15,6 @@ const PlanetInfo = ({ planetData }: Props) => {
 	const [currentData, setCurrentData] = useState<Data>(Data.Overview);
 	const windowWidth = useWidth();
 
-	console.log(planetData);
-
 	return (
 		<Container>
 			{windowWidth < Breakpoint.TabletPortraitPx && (

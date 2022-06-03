@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useWidth } from "../hooks/useWidth";
@@ -22,7 +23,9 @@ const Header = ({ currentPlanet, planetPaths }: Props) => {
 	return (
 		<>
 			<Container>
-				<Logo>The planets</Logo>
+				<Link href="/">
+					<Logo>The planets</Logo>
+				</Link>
 				{windowWidth >= Breakpoint.TabletPortraitPx ? (
 					<Nav
 						planetPaths={planetPaths}
@@ -68,6 +71,7 @@ const Container = styled.header`
 `;
 
 const Logo = styled.h1`
+	cursor: pointer;
 	white-space: nowrap;
 	width: 100%;
 	flex: 1;
@@ -76,6 +80,11 @@ const Logo = styled.h1`
 	text-transform: uppercase;
 	line-height: 1;
 	text-align: left;
+	transition: all 0.2s;
+
+	&:hover {
+		color: var(--color-gray-light);
+	}
 
 	@media (min-width: ${Breakpoint.TabletPortraitPx}px) {
 		text-align: center;

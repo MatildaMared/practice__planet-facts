@@ -1,7 +1,6 @@
 import type { GetStaticPropsContext, NextPage } from "next";
 import { GetStaticProps } from "next";
 import planets from "./../../data.json";
-import styled from "styled-components";
 import { Planet } from "./../../models/Planet";
 import Header from "./../../components/Header";
 import Meta from "../../components/Meta";
