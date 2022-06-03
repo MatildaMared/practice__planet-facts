@@ -59,6 +59,10 @@ const Nav = styled.nav`
 		flex-direction: column;
 		gap: 16px;
 	}
+
+	@media screen and (min-width: ${Breakpoint.LaptopPx}px) {
+		max-width: 100%;
+	}
 `;
 
 interface NavItemProps {
@@ -85,7 +89,7 @@ const NavItem = styled.button<NavItemProps>`
 
 	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
 		width: 100%;
-		padding: 12px 50px;
+		padding: 12px 24px;
 		font-weight: bold;
 		letter-spacing: 1px;
 		border: 1px solid var(--color-gray);
@@ -98,9 +102,13 @@ const NavItem = styled.button<NavItemProps>`
 			color: rgba(255, 255, 255, 0.6);
 		}
 
-		&.active,
-		&:hover {
+		&.active {
 			background-color: ${(props) => `var(--color-${props.planetName})`};
+			border: 1px solid var(--color-gray);
+		}
+
+		&:hover {
+			background-color: var(--color-gray);
 			border: 1px solid var(--color-gray);
 		}
 	}

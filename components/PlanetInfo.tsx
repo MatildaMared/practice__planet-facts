@@ -30,6 +30,7 @@ const PlanetInfo = ({ planetData }: Props) => {
 				className={currentData === Data.Surface ? "extra-space" : ""}
 			>
 				<PlanetImage
+					alt={planetData.name}
 					src={
 						currentData === Data.Structure
 							? planetData.images.internal
@@ -37,7 +38,10 @@ const PlanetInfo = ({ planetData }: Props) => {
 					}
 				/>
 				{currentData === Data.Surface && (
-					<GeologyImage src={planetData.images.geology} />
+					<GeologyImage
+						alt={`close-up of the surface of ${planetData.name}`}
+						src={planetData.images.geology}
+					/>
 				)}
 			</ImageWrapper>
 			<DataContainer>
@@ -94,6 +98,17 @@ const Container = styled.main`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
+	@media (min-width: ${Breakpoint.LaptopPx}px) {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		flex-direction: row;
+		max-width: 1200px;
+		margin-inline: auto;
+		gap: 64px;
+		margin-top: 64px;
+		padding-bottom: 64px;
+	}
 `;
 
 const Heading = styled.h1`
@@ -101,10 +116,14 @@ const Heading = styled.h1`
 	font-family: var(--font-secondary);
 	text-transform: uppercase;
 	margin-bottom: 16px;
+
+	@media screen and (min-width: ${Breakpoint.LaptopPx}px) {
+		font-size: 5rem;
+	}
 `;
 
 const ImageWrapper = styled.figure`
-	padding: 2rem;
+	padding: 4rem;
 	display: flex;
 	justify-content: center;
 	position: relative;
@@ -118,6 +137,11 @@ const ImageWrapper = styled.figure`
 
 	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
 		margin-bottom: 3rem;
+		margin-top: 2rem;
+	}
+
+	@media screen and (min-width: ${Breakpoint.LaptopPx}px) {
+		place-self: center;
 	}
 `;
 
@@ -129,11 +153,15 @@ const PlanetImage = styled.img`
 const GeologyImage = styled.img`
 	position: absolute;
 	width: 40%;
-	max-width: 200px;
+	max-width: 150px;
 	height: auto;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, 30%);
+
+	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		max-width: 200px;
+	}
 `;
 
 const DataContainer = styled.div`
@@ -144,6 +172,13 @@ const DataContainer = styled.div`
 
 	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
 		margin-bottom: 26px;
+	}
+
+	@media (min-width: ${Breakpoint.LaptopPx}px) {
+		flex-direction: column;
+		max-width: 350px;
+		padding: 0;
+		margin-bottom: 0;
 	}
 `;
 
@@ -168,6 +203,10 @@ const Text = styled.p`
 		text-align: left;
 		margin-inline: 0;
 	}
+
+	@media screen and (min-width: ${Breakpoint.LaptopPx}px) {
+		font-size: 1.125rem;
+	}
 `;
 
 const Source = styled.p`
@@ -178,6 +217,10 @@ const Source = styled.p`
 
 	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
 		font-size: 1rem;
+	}
+
+	@media screen and (min-width: ${Breakpoint.LaptopPx}px) {
+		font-size: 1.125rem;
 	}
 `;
 
@@ -206,6 +249,11 @@ const Information = styled.ul`
 	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
 		flex-direction: row;
 	}
+
+	@media (min-width: ${Breakpoint.LaptopPx}px) {
+		grid-column: 1 / -1;
+		padding: 0;
+	}
 `;
 
 const InformationItem = styled.li`
@@ -220,7 +268,7 @@ const InformationItem = styled.li`
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: flex-start;
-		gap: 8px;
+		gap: 4px;
 	}
 
 	& h3 {
@@ -237,6 +285,18 @@ const InformationItem = styled.li`
 
 		@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
 			font-size: 1.5rem;
+		}
+	}
+
+	@media screen and (min-width: ${Breakpoint.LaptopPx}px) {
+		padding: 24px 28px;
+		gap: 0px;
+
+		& h3 {
+			font-size: 0.875rem;
+		}
+		& p {
+			font-size: 2.5rem;
 		}
 	}
 `;
