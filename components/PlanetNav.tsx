@@ -46,6 +46,7 @@ const PlanetNav = ({ planetData, currentData, setCurrentData }: Props) => {
 };
 
 const Nav = styled.nav`
+	min-width: max-content;
 	width: 100%;
 	border-bottom: 1px solid var(--color-gray);
 	display: flex;

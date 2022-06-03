@@ -164,6 +164,7 @@ const Text = styled.p`
 	margin-bottom: 1rem;
 
 	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		font-size: 1rem;
 		text-align: left;
 		margin-inline: 0;
 	}
@@ -174,6 +175,10 @@ const Source = styled.p`
 	display: flex;
 	align-items: center;
 	gap: 8px;
+
+	@media screen and (min-width: ${Breakpoint.TabletPortraitPx}px) {
+		font-size: 1rem;
+	}
 `;
 
 const Link = styled.a`
