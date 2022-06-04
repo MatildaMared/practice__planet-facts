@@ -1,34 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Todo App
 
-## Getting Started
+This is a solution to the [Planet facts site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f). I have been provided with a Figma sketch, assets such as icons and images, and a README file explaining the challenge. All the code and functionality is written from scratch by me 😊
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## The challenge 📝
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Users should be able to:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+-   View the optimal layout for the app depending on their device's screen size
+-   See hover states for all interactive elements on the page
+-   View each planet page and toggle between "Overview", "Internal Structure", and "Surface Geology"
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Screenshots 📸
 
-## Learn More
+![Mobile View](https://user-images.githubusercontent.com/43721548/169679361-4e943e28-8f95-44ac-9762-cac129ad2574.png)
 
-To learn more about Next.js, take a look at the following resources:
+![Desktop View](https://user-images.githubusercontent.com/43721548/172021452-1954201c-48f5-4647-a04d-49715a1728c7.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Links 🌍
 
-## Deploy on Vercel
+-   [GitHub Repo](https://github.com/MatildaMared/practice__planet-facts "Repository")
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-   [Live Demo](https://matildamared-planet-facts.vercel.app "Live View")
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+## Technologies used 💻
+
+-   HTML
+-   CSS
+-   JavaScript
+-   React
+-   Next.js
+-   styled-components
+
+---
+
+## What I learned 👩‍🎓
+
+For me, the main learning opportunities in this project was:
+
+1. Trying out Next.js
+2. Practicing transforming a Figma sketch to an actual app
+
+### Next.js
+
+This is the first time that I'm making a complete app (a small one but still) in Next.js and I really enjoyed working with it! Since I had all the data locally in a json file I decided to go with a static site, but it's gonna be interesting to work with server side rendering in the future! :) I'm also completely blown away of how easy deployment with Vercel was! It's literally done with the click of a button, and I will for sure use Vercel for future projects.
+
+### Layout
+
+This was a very fun challenge design-wise because the views for mobile, tablet and desktop was quite different! Not a whole lot, but take a look at the menu for example. It differs quite a lot on different sizes, and it was so much fun to write the code for it - lots and lots of pseudoclasses :P
+
+---
+
+## Continued development ✏️
+
+It would be fun to find an API that could provide even more data about space. Perhaps users should be able to search for a certain planet? I really loved the space theme, the images and the font pairings in this challenge - it looks great!
+
+---
+
+## Author 👩‍💻
+
+**Matilda Mared**
+
+-   [GitHub Profile](https://github.com/MatildaMared "MatildaMared")
+-   [LinkedIn Profile](https://www.linkedin.com/in/matilda-mared "MatildaMared")
+-   [Email](mailto:matildamared@live.se?subject=Hi "Hi!")
