@@ -1,4 +1,4 @@
-# Todo App
+# Planet facts
 
 This is a solution to the [Planet facts site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f). I have been provided with a Figma sketch, assets such as icons and images, and a README file explaining the challenge. All the code and functionality is written from scratch by me 😊
 
@@ -16,9 +16,9 @@ Users should be able to:
 
 ## Screenshots 📸
 
-![Mobile View](https://user-images.githubusercontent.com/43721548/169679361-4e943e28-8f95-44ac-9762-cac129ad2574.png)
+![Mobile View](https://user-images.githubusercontent.com/43721548/172021996-1e5b6f71-9001-402a-a3c6-7010c3dc66ab.png)
 
-![Desktop View](https://user-images.githubusercontent.com/43721548/172021452-1954201c-48f5-4647-a04d-49715a1728c7.png)
+![Desktop View](https://user-images.githubusercontent.com/43721548/172021961-b8a53bc5-0e29-4cb5-9a94-4df11fce35c0.png)
 
 ---
 
